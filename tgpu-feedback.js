@@ -46,7 +46,7 @@ async function open(){
   try{await insert(p);status.textContent=t.ok;form.reset()}catch{const q=readQ();q.push(p);writeQ(q);status.textContent=t.retry}finally{submit.disabled=false}
  });
 }
-const b=document.createElement('button');b.type='button';b.className='tgpuFeedbackTrigger';b.textContent='✦ '+C[lang()].open;b.addEventListener('click',open);document.body.appendChild(b);
+const b=document.createElement('button');b.type='button';b.className='tgpuFeedbackTrigger';b.textContent='✦ '+C[lang()].open;b.addEventListener('click',open);(document.querySelector('main > header')||document.body).appendChild(b);
 new MutationObserver(()=>b.textContent='✦ '+C[lang()].open).observe(document.documentElement,{attributes:true,attributeFilter:['lang','dir']});
 window.addEventListener('online',flush);void flush();
 })();
