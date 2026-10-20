@@ -23,3 +23,14 @@ jobs:
         run: node --check adab/studio.js
       - name: Run local-only privacy and behaviour checks
         run: node tests/adab-safety.test.cjs
+      - name: Package review-only standalone files
+        run: |
+          mkdir -p owner-review/adab
+          cp adab/index.html adab/studio.js adab/OWNER_REVIEW_AND_SAFETY_GATES.md owner-review/adab/
+      - name: Upload private GitHub Actions review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: khalifah-adab-owner-review
+          path: owner-review/
+          retention-days: 7
+          if-no-files-found: error
