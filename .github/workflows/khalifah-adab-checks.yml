@@ -1,0 +1,25 @@
+name: Khalifah Adab Local Safety Checks
+on:
+  pull_request:
+    paths:
+      - 'adab/**'
+      - 'tests/adab-safety.test.cjs'
+      - '.github/workflows/khalifah-adab-checks.yml'
+  push:
+    branches:
+      - 'feature/adab-confidence-corner-20261021'
+    paths:
+      - 'adab/**'
+      - 'tests/adab-safety.test.cjs'
+      - '.github/workflows/khalifah-adab-checks.yml'
+permissions:
+  contents: read
+jobs:
+  local-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: node --check adab/studio.js
+      - name: Run local-only privacy and behaviour checks
+        run: node tests/adab-safety.test.cjs
