@@ -27,3 +27,15 @@ Status: DRAFT only. This checklist documents the existing PR #18; it does not au
 5. Merge/publish only after founder approval, educational review, privacy and device acceptance.
 
 Status vocabulary: SOURCE UPDATED / LOCAL CI PASSED / AZURE PREVIEW BLOCKED / DEVICE QA AWAITING / OWNER APPROVAL AWAITING / NOT RELEASED.
+
+## Owner-review evidence verified on 21 October 2026
+- [Chromium responsive / accessibility workflow #39482572405](https://github.com/tgpu-digital-ecosystem/khalifah-kecil/actions/runs/39482572405): SUCCESS at commit `9791ecaca6ff288e6d9a5f611dbd52a7286e051e`, 390/768/1440 viewports. This is an automated Chromium run, not native Safari/Android testing or a screen reader audit.
+- [Local privacy/safety workflow #39482572531](https://github.com/tgpu-digital-ecosystem/khalifah-kecil/actions/runs/39482572531): SUCCESS. Verified review artifact `khalifah-adab-owner-review`, artifact ID `12292395903`, expires 27 October 2026 at 19:20:18 UTC. Open the run's Artifacts section for owner download. It is a downloadable static source preview, not a hosted Azure environment.
+- Added guardian/teacher feedback section is **copy-only**, fixed-category and has no automatic external transmission. A checkbox is adult self-declaration, **not identity verification**.
+- [Azure workflow #39482572530](https://github.com/tgpu-digital-ecosystem/khalifah-kecil/actions/runs/39482572530): FAILURE. Exact environment inventory and safe retirement candidates remain unverified. No cleanup or override is authorized by this checklist.
+
+## Human acceptance record (keep unmarked until genuinely tested)
+- [ ] Owner opens extracted `adab/index.html` in an environment that permits the local scripts; checks all prompts and guardian copy controls. Record browser, device model, OS version, date and result.
+- [ ] On actual iPhone Safari and Android Chrome, test text enlargement, portrait/landscape, keyboard navigation where available, and screen-reader prompts/status; record bugs without children's identifiers.
+- [ ] Confirm guardian instructions, privacy notice and content suitability with an appropriate reviewer, then record reviewer and written approval.
+- [ ] Confirm Azure staging environments from the actual Azure subscription before deciding on quota remediation.
