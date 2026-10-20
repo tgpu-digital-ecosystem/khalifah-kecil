@@ -24,6 +24,12 @@ async function main(){
    page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:'))requests.push(r.url())});
    await page.goto('http://127.0.0.1:'+server.address().port+'/',{waitUntil:'networkidle'});
    assert.equal(await page.locator('html').getAttribute('lang'),'ms');
+   assert.equal(await page.locator('main').count(),1);
+   assert.equal(await page.locator('h1').count(),1);
+   for(const field of ['topic','reflection','guardian-confirm','guardian-topic','guardian-summary']) assert.ok(await page.locator('label[for="'+field+'"]').count(),'missing visible label: '+field);
+   for(const live of ['prompt','status','guardian-status']) assert.equal(await page.locator('#'+live).getAttribute('aria-live'),'polite');
+   await page.keyboard.press('Tab');
+   assert.ok(await page.evaluate(()=>document.activeElement?.matches('a,button,input,select,textarea')),'keyboard focus must reach interactive element');
    assert.equal(await page.locator('#guardian-copy').isDisabled(),true);
    await page.locator('#guardian-confirm').check();
    assert.equal(await page.locator('#guardian-copy').isEnabled(),true);
