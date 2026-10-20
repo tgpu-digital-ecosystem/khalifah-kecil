@@ -36,7 +36,7 @@ assert.match(blocked.nodes.status.textContent,/Tidak dapat simpan/);
 
 const guardianScript=fs.readFileSync('adab/guardian-feedback.js','utf8');
 for(const id of ['guardian-feedback','guardian-confirm','guardian-topic','guardian-summary','guardian-copy','guardian-status']) assert.match(html,new RegExp('id="'+id+'"'));
-for(const forbidden of [/\\bfetch\\s*\\(/, /XMLHttpRequest/, /WebSocket/, /sendBeacon/, /localStorage/, /sessionStorage/, /mailto:/, /window\\.open/]) assert.doesNotMatch(guardianScript,forbidden);
+for(const forbidden of ['fetch(', 'XMLHttpRequest', 'WebSocket', 'sendBeacon', 'localStorage', 'sessionStorage', 'mailto:', 'window.open']) assert.equal(guardianScript.includes(forbidden),false);
 const listeners={};
 const guardianNodes=Object.fromEntries(['guardian-feedback','guardian-confirm','guardian-topic','guardian-summary','guardian-copy','guardian-status'].map(id=>[id,{value:'',checked:false,disabled:true,textContent:'',addEventListener:(type,cb)=>{listeners[id+type]=cb},focus(){},select(){}}]));
 guardianNodes['guardian-topic'].value='instructions';
