@@ -1,0 +1,38 @@
+name: Khalifah Adab Local Safety Checks
+on:
+  pull_request:
+    paths:
+      - 'adab/**'
+      - 'tests/adab-safety.test.cjs'
+      - '.github/workflows/khalifah-adab-checks.yml'
+  push:
+    branches:
+      - 'feature/adab-confidence-corner-20261021'
+    paths:
+      - 'adab/**'
+      - 'tests/adab-safety.test.cjs'
+      - '.github/workflows/khalifah-adab-checks.yml'
+permissions:
+  contents: read
+jobs:
+  local-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check adab/studio.js
+          node --check adab/guardian-feedback.js
+      - name: Run local-only privacy and behaviour checks
+        run: node tests/adab-safety.test.cjs
+      - name: Package review-only standalone files
+        run: |
+          mkdir -p owner-review/adab
+          cp adab/index.html adab/studio.js adab/guardian-feedback.js adab/OWNER_REVIEW_AND_SAFETY_GATES.md owner-review/adab/
+      - name: Upload private GitHub Actions review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: khalifah-adab-owner-review
+          path: owner-review/
+          retention-days: 7
+          if-no-files-found: error
