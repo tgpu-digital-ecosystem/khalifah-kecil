@@ -9,7 +9,9 @@ on:
 
 jobs:
   build_and_deploy:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    # PRs run the child-safety source QA; Azure free staging slots are exhausted.
+    # Deploy only main, preserving 0-cost production and existing preview closure.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
