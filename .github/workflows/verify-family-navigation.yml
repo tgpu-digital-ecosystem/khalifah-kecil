@@ -1,0 +1,26 @@
+name: Verify Khalifah footer
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check site footer and family links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          html=Path("index.html").read_text("utf-8")
+          assert 'class="family-footer"' in html
+          assert 'aria-label="Laman dalam keluarga TGPU"' in html
+          for url in ("https://tgpu.my/","https://academy.tgpu.my/","https://iqra.tgpu.my/"):
+              assert 'href="'+url+'"' in html, url
+          assert "family-footer nav" in html
+          parser=HTMLParser()
+          parser.feed(html)
+          print("PASS Khalifah footer and HTML parsing")
+          PY
