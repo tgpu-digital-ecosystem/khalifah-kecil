@@ -1,0 +1,43 @@
+name: Verify Khalifah real production domain and family safety
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'kindness-missions.js'
+      - 'sw.js'
+      - '.github/workflows/verify-khalifah-production.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse the new child-safe script before checking public site
+        run: |
+          node --check kindness-missions.js
+          test -s index.html
+          test -s sw.js
+      - name: Verify live HTTPS, educational app and optional offline helper
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=https://khalifah.tgpu.my
+          verified=false
+          for attempt in {1..12}; do
+            if curl --fail --silent --show-error --location --max-time 20 "$BASE/" -o /tmp/khalifah-live.html &&
+               curl --fail --silent --show-error --location --max-time 20 "$BASE/kindness-missions.js?v=1" -o /tmp/khalifah-kindness.js &&
+               curl --fail --silent --show-error --location --max-time 20 "$BASE/sw.js" -o /tmp/khalifah-sw.js &&
+               grep -Fq 'id="khalifah-kindness"' /tmp/khalifah-live.html &&
+               grep -Fq 'No open AI chat' /tmp/khalifah-kindness.js &&
+               grep -Fq 'kindness-missions.js?v=1' /tmp/khalifah-sw.js &&
+               grep -Fq 'https://academy.tgpu.my/' /tmp/khalifah-live.html; then
+              verified=true
+              break
+            fi
+            sleep 5
+          done
+          test "$verified" = true
+          echo "PASS: Khalifah HTTPS branded domain and offline child-safe guide"
