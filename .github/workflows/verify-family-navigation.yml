@@ -38,6 +38,7 @@ jobs:
           assert.match(sw,/kindness-missions.js/);
           for(const word of ['ms:','en:','ar:','Tiada sembang AI terbuka','No open AI chat']) assert.ok(helper.includes(word),word);
           assert.ok(!/\\b(?:fetch|XMLHttpRequest|sendBeacon|localStorage|sessionStorage)\\b/.test(helper));
-          assert.ok(!/https?:\\/\\//.test(helper));
+          assert.ok(!helper.includes('http://')&&!helper.includes('https://'));
+
           console.log('PASS: child-safe adult-supervised original prompts, offline cache, no network/data');
           JS
