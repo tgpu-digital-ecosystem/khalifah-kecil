@@ -24,3 +24,20 @@ jobs:
           parser.feed(html)
           print("PASS Khalifah footer and HTML parsing")
           PY
+
+      - name: Verify child-safety and no-cost kindness helper
+        run: |
+          node --check kindness-missions.js
+          node - <<'JS'
+          const fs=require('node:fs'),assert=require('node:assert/strict');
+          const page=fs.readFileSync('index.html','utf8');
+          const helper=fs.readFileSync('kindness-missions.js','utf8');
+          const sw=fs.readFileSync('sw.js','utf8');
+          assert.match(page,/id="khalifah-kindness"/);
+          assert.match(page,/kindness-missions.js/);
+          assert.match(sw,/kindness-missions.js/);
+          for(const word of ['ms:','en:','ar:','Tiada sembang AI terbuka','No open AI chat']) assert.ok(helper.includes(word),word);
+          assert.ok(!/\\b(?:fetch|XMLHttpRequest|sendBeacon|localStorage|sessionStorage)\\b/.test(helper));
+          assert.ok(!/https?:\\/\\//.test(helper));
+          console.log('PASS: child-safe adult-supervised original prompts, offline cache, no network/data');
+          JS
