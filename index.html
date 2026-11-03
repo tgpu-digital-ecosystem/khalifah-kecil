@@ -11,13 +11,20 @@
 <meta property="og:title" content="Khalifah Kecil — Impossible → Possible">
 <meta property="og:description" content="Pengembaraan rasa ingin tahu, ciptaan dan pembelajaran dunia sebenar untuk kanak-kanak.">
 <meta property="og:url" content="https://khalifah.tgpu.my/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://khalifah.tgpu.my/TGPU%20Khalifah%20Kecil%20Digital%20Ecosystem.png">
+<meta property="og:image:secure_url" content="https://khalifah.tgpu.my/TGPU%20Khalifah%20Kecil%20Digital%20Ecosystem.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="TGPU Khalifah Kecil — an educational initiative within TGPU Digital Ecosystem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://khalifah.tgpu.my/TGPU%20Khalifah%20Kecil%20Digital%20Ecosystem.png">
+<link rel="icon" type="image/png" href="/khalifah-kecil-logo.png">
+
 <link rel="manifest" href="/manifest.webmanifest">
 <title>Khalifah Kecil — Impossible → Possible</title>
 <style>
 :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17342e;background:#f5f1e8;--ink:#17342e;--green:#174f42;--cream:#fff9ed;--gold:#d39d2a;--sky:#dff2f5;--ocean:#dff0f5;--power:#f7ead2;--nature:#e5f1df;--home:#f5e5df}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 80% 8%,#f5d98c55 0 8%,transparent 9%),linear-gradient(180deg,#dff1e8 0,#fff9ed 38%,#f7f0df 100%)} body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 18%,#fff 0 2px,transparent 3px),radial-gradient(circle at 90% 31%,#fff 0 2px,transparent 3px);opacity:.7}
-main{max-width:720px;margin:auto;padding:18px 16px 118px}.brand{display:flex;align-items:center;gap:8px;font-size:1.02rem}.brand:before{content:"✦";display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:#174f42;color:#fff}.tag{margin:7px 0 2px 42px;font-weight:700}.brand{font-weight:900;letter-spacing:.04em;color:#174f42}.tag{font-size:.8rem;color:#6d766f}
+main{max-width:720px;margin:auto;padding:18px 16px 118px}.brand{display:flex;align-items:center;gap:8px;font-size:1.02rem}.brand:before{content:none}.brand-logo{width:72px;height:72px;object-fit:contain;flex:0 0 72px}.brand span{line-height:1.2}.tag{margin:7px 0 2px 80px;font-weight:700}.brand{font-weight:900;letter-spacing:.04em;color:#174f42}.tag{font-size:.8rem;color:#6d766f}
 .card{background:#fff;border:1px solid #dce7df;border-radius:30px;padding:24px;box-shadow:0 16px 42px #17342e14;margin-top:18px;overflow:hidden;position:relative}.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#f0dba83d;right:-55px;top:-55px;pointer-events:none}
 h1{font-size:clamp(2rem,9vw,4rem);line-height:1;margin:.25em 0}.lead{font-size:1.15rem;line-height:1.55;color:#42544e}
 button,.choice{width:100%;border:0;border-radius:20px;padding:17px 18px;margin-top:10px;font-size:1.05rem;font-weight:850;cursor:pointer;min-height:58px;transition:transform .12s ease}button:focus-visible,.choice:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #d39d2a;outline-offset:3px}button:active{transform:scale(.98)}
@@ -55,7 +62,7 @@ footer{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filt
 </style>
 <link rel="stylesheet" href="/tgpu-feedback.css?v=2">
 </head>
-<body><main><header><div class="brand">🌟 KHALIFAH KECIL</div><div class="tag">IMPOSSIBLE → POSSIBLE · DUNIA PEMBELAJARAN</div></header><div id="app"></div><section id="khalifah-kindness" class="kindness-missions" aria-label="Optional supervised kindness activities"></section></main>
+<body><main><header><div class="brand"><img class="brand-logo" src="/khalifah-kecil-logo.png" alt="TGPU Khalifah Kecil" width="92" height="92" decoding="async"><span>KHALIFAH KECIL</span></div><div class="tag">IMPOSSIBLE → POSSIBLE · DUNIA PEMBELAJARAN</div></header><div id="app"></div><section id="khalifah-kindness" class="kindness-missions" aria-label="Optional supervised kindness activities"></section></main>
 <footer class="family-footer"><p>Fikir dahulu · Cuba di dunia sebenar · Belajar · Baiki · Bantu</p><nav aria-label="Laman dalam keluarga TGPU"><a href="https://tgpu.my/">TGPU Digital</a><a href="https://academy.tgpu.my/">TGPU Academy</a><a href="https://iqra.tgpu.my/">TGPU Iqra</a></nav></footer>
 <script>
 const S={step:+localStorage.kkStep||0,name:localStorage.kkName||"",age:localStorage.kkAge||"8",hero:localStorage.kkHero||"",result:localStorage.kkResult||"",improve:localStorage.kkImprove||"",idea:localStorage.kkIdea||"",retest:localStorage.kkRetest||"",home:localStorage.kkHome||"",oceanResult:localStorage.kkOceanResult||"",oceanImprove:localStorage.kkOceanImprove||"",oceanRetest:localStorage.kkOceanRetest||"",powerResult:localStorage.kkPowerResult||"",powerImprove:localStorage.kkPowerImprove||"",powerRetest:localStorage.kkPowerRetest||"",plantResult:localStorage.kkPlantResult||"",plantImprove:localStorage.kkPlantImprove||"",plantRetest:localStorage.kkPlantRetest||"",homeProblem:localStorage.kkHomeProblem||"",homeIdea:localStorage.kkHomeIdea||"",homeResult:localStorage.kkHomeResult||"",homeImprove:localStorage.kkHomeImprove||"",homeRetest:localStorage.kkHomeRetest||""};
