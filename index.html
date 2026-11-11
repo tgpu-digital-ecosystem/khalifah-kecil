@@ -47,7 +47,84 @@ footer{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filt
 .family-footer nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 20px}
 .family-footer a{color:inherit;text-decoration:underline;text-decoration-color:#d3b267;text-underline-offset:5px;min-height:44px;display:inline-flex;align-items:center}
 .family-footer a:hover,.family-footer a:focus-visible{text-decoration-thickness:2px;outline-offset:4px}
-</style>
+
+
+/* Z.ai-inspired Khalifah Kecil illustrated adventure landing — functionality retained */
+:root{--kk-emerald:#075b43;--kk-mint:#b6e8cc;--kk-gold:#d9b76e;--kk-cream:#fff8e7}
+body.kk-landing-mode{background:var(--kk-cream)}
+body.kk-landing-mode>main,body.kk-landing-mode>.family-footer{display:none}
+#kk-adventure{display:none;font-family:'Quicksand',system-ui,sans-serif;color:#063d2d;background:#fff8e7;min-height:100vh;overflow:hidden}
+body.kk-landing-mode #kk-adventure{display:block}
+#kk-adventure *{box-sizing:border-box}
+#kk-adventure a{text-decoration:none;color:inherit}
+#kk-adventure button{cursor:pointer}
+#kk-adventure .kk-shell{max-width:1190px;width:calc(100% - 38px);margin-inline:auto}
+#kk-adventure .kk-nav{position:sticky;top:0;z-index:30;padding:12px 0;background:#e5f7eec9;backdrop-filter:blur(16px)}
+#kk-adventure .kk-nav-inner{background:#fffdf1f5;border:2px solid #fff;border-radius:40px;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;box-shadow:0 8px 30px #075b4318;gap:15px}
+#kk-adventure .kk-brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;color:#075b43;font-family:'Fredoka',system-ui}
+#kk-adventure .kk-brand img{width:43px;height:43px;object-fit:contain}
+#kk-adventure .kk-nav-links{display:flex;gap:22px;align-items:center;font-weight:800;color:#245a46;font-size:14px}
+#kk-adventure .kk-nav-links a:hover{color:#069e67}
+#kk-adventure .kk-hero{position:relative;text-align:center;min-height:680px;padding:72px 15px 235px;background:linear-gradient(180deg,#91d7ee 0%,#b8edce 58%,#fff8e7 100%);isolation:isolate;overflow:hidden}
+#kk-adventure .kk-sun{position:absolute;right:9%;top:32px;font-size:72px;animation:kk-float 6s ease-in-out infinite;pointer-events:none;opacity:.8}
+#kk-adventure .kk-cloud{position:absolute;z-index:-1;color:#fff;font-size:75px;opacity:.83;animation:kk-cloud 32s linear infinite;pointer-events:none}
+#kk-adventure .kk-cloud.c1{top:95px;left:-170px}
+#kk-adventure .kk-cloud.c2{top:230px;left:-260px;animation-duration:46s;animation-delay:-16s}
+#kk-adventure .kk-tag{display:inline-block;padding:8px 18px;background:#d9f6dc;border:1px solid #92d9ae;border-radius:99px;font-size:12px;color:#075b43;font-weight:900;letter-spacing:.07em;box-shadow:0 9px 22px #075b4312}
+#kk-adventure h1,#kk-adventure h2,#kk-adventure h3{font-family:'Fredoka',system-ui,sans-serif;line-height:1.2}
+#kk-adventure .kk-hero h1{font-size:clamp(41px,6.6vw,78px);max-width:800px;margin:18px auto 17px;color:#075b43;font-weight:750;letter-spacing:-.025em}
+#kk-adventure .kk-hero p{font-size:clamp(16px,2vw,21px);font-weight:800;color:#285f45}
+#kk-adventure .kk-btn-row{display:flex;justify-content:center;flex-wrap:wrap;gap:13px;margin:30px auto}
+#kk-adventure .kk-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;border-radius:35px;padding:14px 27px;font-size:16px;font-weight:900;border:2px solid transparent;box-shadow:0 10px 24px #0b734b1e;transition:transform .22s}
+#kk-adventure .kk-button:hover{transform:translateY(-3px)}
+#kk-adventure .kk-button.primary{background:#10b981;color:#fff}
+#kk-adventure .kk-button.light{background:#fff;color:#075b43;border-color:#a0d6ae}
+#kk-adventure .kk-island{position:absolute;left:50%;bottom:-29px;transform:translateX(-50%);width:min(900px,99%);height:276px;pointer-events:none;animation:kk-island-float 6s ease-in-out infinite}
+#kk-adventure .kk-island svg{display:block;width:100%;height:100%;filter:drop-shadow(0 15px 20px #075b433e)}
+#kk-adventure .kk-section{padding:78px 0}
+#kk-adventure .kk-section-intro{text-align:center;margin-bottom:38px}
+#kk-adventure .kk-section-intro h2{font-size:clamp(30px,4.7vw,50px);margin:0 0 11px;color:#075b43}
+#kk-adventure .kk-section-intro p{font-size:17px;color:#567363;margin:0}
+#kk-adventure .kk-worlds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+#kk-adventure .kk-world{border:4px solid white;border-radius:35px;box-shadow:0 12px 35px #075b431b;padding:27px;position:relative;overflow:hidden;min-height:338px;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s}
+#kk-adventure .kk-world:hover{transform:translateY(-6px);box-shadow:0 20px 45px #075b432b}
+#kk-adventure .kk-world .kk-count{font-size:11px;padding:6px 11px;background:#ffffffa8;border-radius:25px;align-self:flex-end;font-weight:900}
+#kk-adventure .kk-world .kk-illustration{height:125px;display:grid;place-items:center;font-size:92px;animation:kk-float 5s ease-in-out infinite}
+#kk-adventure .kk-world h3{font-size:28px;margin:4px 0 7px}
+#kk-adventure .kk-world p{font-weight:650;font-size:14px;min-height:42px;line-height:1.5;margin:0 0 14px}
+#kk-adventure .kk-world .kk-world-go{display:block;border:0;background:#fffdf5;color:#155544;text-align:center;border-radius:30px;padding:12px;font-size:14px;font-weight:900;margin-top:auto}
+#kk-adventure .kk-world.sky{background:#9ddbf1;color:#145474}
+#kk-adventure .kk-world.ocean{background:#7ce7dc;color:#0b5962}
+#kk-adventure .kk-world.power{background:#e8c789;color:#6c4a13}
+#kk-adventure .kk-world.nature{background:#97df9a;color:#205d35}
+#kk-adventure .kk-world.home{background:#f9ae8e;color:#743d26;grid-column:span 2}
+#kk-adventure .kk-activity{background:linear-gradient(160deg,#fff9e8,#bce9d1)}
+#kk-adventure .kk-activity-grid{max-width:860px;margin:auto;background:white;border:4px solid #10b981;border-radius:34px;padding:32px;box-shadow:0 15px 40px #075b4322}
+#kk-adventure .kk-activity-grid h2{color:#075b43;font-size:clamp(27px,4vw,38px);margin:9px 0}
+#kk-adventure .kk-activity-grid p{color:#456955;font-size:17px;line-height:1.7}
+#kk-adventure .kk-sequence{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+#kk-adventure .kk-sequence span{background:#dff5e4;border:1px solid #9fd8b3;border-radius:50px;padding:8px 12px;font-size:12px;font-weight:900}
+#kk-adventure .kk-passport{background:#075b43;color:#fff8e7}
+#kk-adventure .kk-passport .kk-section-intro h2{color:#fff8e7}
+#kk-adventure .kk-passport .kk-section-intro p{color:#c6ebd9}
+#kk-adventure .kk-passport-book{max-width:830px;background:#fff8e7;color:#164b38;border-radius:30px;border:8px solid #06432f;padding:35px;margin:auto;box-shadow:0 22px 50px #01241855}
+#kk-adventure .kk-passport-book h3{font-size:28px;margin:5px 0 14px}
+#kk-adventure .kk-passport-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+#kk-adventure .kk-passport-item{background:#e7f3e5;border-radius:18px;padding:12px 8px;text-align:center;min-width:0}
+#kk-adventure .kk-passport-item span{display:block;font-size:34px}
+#kk-adventure .kk-passport-item small{font-size:11px;font-weight:800}
+#kk-adventure .kk-passport-item.done{background:#b3ecc6;border:2px solid #22b47e}
+#kk-adventure .kk-footer{text-align:center;background:#fff8e7;padding:36px 15px;border-top:5px solid #10b981;font-size:13px;color:#567363}
+#kk-adventure button:focus-visible,#kk-adventure a:focus-visible{outline:3px solid #d49a30;outline-offset:4px}
+@keyframes kk-float{50%{transform:translateY(-13px)}}
+@keyframes kk-island-float{50%{transform:translate(-50%,-12px)}}
+@keyframes kk-cloud{to{transform:translateX(calc(100vw + 370px))}}
+@media(max-width:890px){#kk-adventure .kk-worlds{grid-template-columns:repeat(2,minmax(0,1fr))}#kk-adventure .kk-world.home{grid-column:span 1}}
+@media(max-width:650px){#kk-adventure .kk-shell{width:calc(100% - 26px)}#kk-adventure .kk-nav-links{gap:10px;font-size:12px}#kk-adventure .kk-nav-links a:nth-child(2){display:none}#kk-adventure .kk-brand{font-size:17px}#kk-adventure .kk-brand img{width:34px;height:34px}#kk-adventure .kk-hero{min-height:620px;padding:61px 10px 220px}#kk-adventure .kk-hero h1{font-size:clamp(37px,10.5vw,53px)}#kk-adventure .kk-sun{font-size:50px;right:4%}#kk-adventure .kk-island{height:210px}#kk-adventure .kk-worlds{grid-template-columns:1fr}#kk-adventure .kk-world{min-height:305px;padding:22px}#kk-adventure .kk-section{padding:58px 0}#kk-adventure .kk-passport-book{padding:22px 15px}#kk-adventure .kk-passport-list{grid-template-columns:repeat(3,minmax(0,1fr))}#kk-adventure .kk-activity-grid{padding:25px 18px}#kk-adventure .kk-btn-row{flex-direction:column;align-items:stretch}#kk-adventure .kk-button{width:100%}}
+@media(max-width:360px){#kk-adventure .kk-nav-links a:last-child{display:none}#kk-adventure .kk-hero h1{font-size:36px}#kk-adventure .kk-island{height:177px}}
+@media(prefers-reduced-motion:reduce){#kk-adventure *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style id="kindness-styles">
 .kindness-missions{margin-top:24px;padding:clamp(22px,4vw,36px);background:linear-gradient(140deg,#103b31,#175440);color:#fff;border-radius:29px;box-shadow:0 20px 46px #123c302a}
 .kindness-missions h2{font-size:clamp(1.45rem,5vw,2rem);line-height:1.35;margin:4px 0 12px}
@@ -64,13 +141,41 @@ footer{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filt
 </style>
 <link rel="stylesheet" href="/tgpu-feedback.css?v=2">
 </head>
-<body><main><header><div class="brand"><img class="brand-logo" src="/khalifah-kecil-logo.png" alt="TGPU Khalifah Kecil" width="92" height="92" decoding="async"><span>KHALIFAH KECIL</span></div><div class="tag">IMPOSSIBLE → POSSIBLE · DUNIA PEMBELAJARAN</div></header><div id="app"></div><section id="khalifah-kindness" class="kindness-missions" aria-label="Optional supervised kindness activities"></section></main>
+<body class="kk-landing-mode"><div id="kk-adventure">
+<nav class="kk-nav"><div class="kk-shell kk-nav-inner"><a class="kk-brand" href="#kk-top"><img src="/khalifah-kecil-logo.png" alt="Khalifah Kecil official logo"><span>Khalifah Kecil</span></a><div class="kk-nav-links"><a href="#kk-worlds">Dunia</a><a href="#kk-experiment">Cubaan</a><a href="#kk-passport">Pasport</a></div></div></nav>
+<section class="kk-hero" id="kk-top"><div class="kk-cloud c1">☁</div><div class="kk-cloud c2">☁</div><div class="kk-sun">☀️</div>
+<div class="kk-shell"><span class="kk-tag">TGPU Digital Ecosystem</span><h1>Dunia Penuh Keajaiban Menanti Kamu!</h1><p>Bayangkan. Tanya. Temui. Cuba. Baiki. Bantu.</p>
+<div class="kk-btn-row"><button class="kk-button primary" type="button" onclick="startKhalifahMission(0)">Mulakan Pengembaraan</button><a class="kk-button light" href="#kk-worlds">Terokai Dunia</a></div></div>
+<div class="kk-island" aria-hidden="true"><svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMax meet"><ellipse cx="400" cy="160" rx="300" ry="47" fill="#10B981"/><path d="M100 160 Q400 383 700 160 L685 220 Q400 352 115 220Z" fill="#063D2D"/><ellipse cx="400" cy="154" rx="280" ry="37" fill="#42d995"/><g transform="translate(325 68)"><rect x="25" y="48" width="105" height="72" rx="5" fill="#fff8e7" stroke="#075b43" stroke-width="3"/><path d="M9 52 L78 0 145 52Z" fill="#d9b76e" stroke="#075b43" stroke-width="3"/><rect x="68" y="81" width="25" height="39" rx="3" fill="#075b43"/><rect x="37" y="69" width="18" height="18" fill="#87ceeb"/><rect x="102" y="69" width="18" height="18" fill="#87ceeb"/></g><g transform="translate(542 62)"><rect x="25" y="65" width="18" height="87" fill="#79552f"/><circle cx="34" cy="48" r="50" fill="#0d8e61"/><circle cx="5" cy="63" r="35" fill="#10b981"/><circle cx="67" cy="63" r="34" fill="#37cb87"/></g><g transform="translate(220 113)"><rect x="19" y="29" width="11" height="47" fill="#79552f"/><circle cx="24" cy="20" r="30" fill="#10b981"/></g><g transform="translate(492 133)"><circle cx="0" cy="0" r="14" fill="#ffd77a"/><rect x="-12" y="11" width="24" height="29" rx="9" fill="#ff9272"/><circle cx="-4" cy="-2" r="2" fill="#075b43"/><circle cx="4" cy="-2" r="2" fill="#075b43"/></g></svg></div>
+</section>
+<section class="kk-section" id="kk-worlds"><div class="kk-shell"><div class="kk-section-intro"><h2>Lima Dunia Pengembaraan</h2><p>Pilih sebuah dunia untuk mula meneroka!</p></div><div class="kk-worlds">
+<article class="kk-world sky"><span class="kk-count">Dunia 1</span><div class="kk-illustration" aria-hidden="true">☁️✈️</div><h3>Langit</h3><p>Terbang, bayangkan dan cipta rekaan manusia.</p><button class="kk-world-go" onclick="startKhalifahMission(0)">Terokai Langit →</button></article>
+<article class="kk-world ocean"><span class="kk-count">Dunia 2</span><div class="kk-illustration" aria-hidden="true">🐠🌊</div><h3>Lautan</h3><p>Selami bawah air, udara dan cubaan baharu.</p><button class="kk-world-go" onclick="startKhalifahMission(20)">Terokai Lautan →</button></article>
+<article class="kk-world power"><span class="kk-count">Dunia 3</span><div class="kk-illustration" aria-hidden="true">⚙️🔧</div><h3>Kuasa</h3><p>Daya, tuas dan mesin ringkas yang menarik.</p><button class="kk-world-go" onclick="startKhalifahMission(40)">Terokai Kuasa →</button></article>
+<article class="kk-world nature"><span class="kk-count">Dunia 4</span><div class="kk-illustration" aria-hidden="true">🌱🌳</div><h3>Alam</h3><p>Pemerhatian, tumbuhan dan penyelesaian praktikal.</p><button class="kk-world-go" onclick="startKhalifahMission(60)">Terokai Alam →</button></article>
+<article class="kk-world home"><span class="kk-count">Dunia 5</span><div class="kk-illustration" aria-hidden="true">🏡❤️</div><h3>Rumah</h3><p>Sifat ingin tahu dunia sebenar bermula daripada objek seharian.</p><button class="kk-world-go" onclick="startKhalifahMission(180)">Terokai Rumah →</button></article>
+</div></div></section>
+<section class="kk-section kk-activity" id="kk-experiment"><div class="kk-shell"><div class="kk-section-intro"><h2>Sekarang Masa untuk Cuba!</h2><p>Belajar di dunia sebenar, bukan hanya di skrin.</p></div>
+<div class="kk-activity-grid"><div class="kk-tag">Misi Dunia: Kuasa</div><h2>Tanya. Ramal. Buat. Perhatikan.</h2><p>Cuba misi tuas menggunakan pembaris, pensel dan objek ringan. Ikut arahan keselamatan yang tersedia dalam misi sebenar; minta bantuan orang dewasa apabila perlu.</p>
+<div class="kk-sequence"><span>❓ Tanya</span><span>💡 Ramal</span><span>🔬 Cuba</span><span>👀 Perhati</span><span>🔧 Baiki</span></div>
+<button class="kk-button primary" type="button" onclick="startKhalifahMission(40)">Mulakan Misi Kuasa →</button></div></div></section>
+<section class="kk-section kk-passport" id="kk-passport"><div class="kk-shell"><div class="kk-section-intro"><h2>Pasport Penemu</h2><p>Jurnal penemuan peribadi kamu.</p></div>
+<div class="kk-passport-book"><h3>Pengembaraan Saya ✨</h3><p id="kk-passport-message">Kemajuan misi disimpan pada peranti ini sahaja.</p>
+<div class="kk-passport-list">
+<div class="kk-passport-item" data-kk-complete="kkCompleted"><span>✈️</span><small>Langit</small></div><div class="kk-passport-item" data-kk-complete="kkOceanCompleted"><span>🌊</span><small>Lautan</small></div><div class="kk-passport-item" data-kk-complete="kkPowerCompleted"><span>⚙️</span><small>Kuasa</small></div><div class="kk-passport-item" data-kk-complete="kkPlantCompleted"><span>🌱</span><small>Alam</small></div><div class="kk-passport-item" data-kk-complete="kkHomeCompleted"><span>🏠</span><small>Rumah</small></div></div>
+<div class="kk-btn-row"><button class="kk-button primary" onclick="openKhalifahPassport()">Lihat Pasport Saya →</button></div></div></div></section>
+<footer class="kk-footer">Khalifah Kecil · TGPU Digital Ecosystem · <a href="https://tgpu.my/">TGPU Digital</a> · <a href="https://academy.tgpu.my/">TGPU Academy</a> · <a href="https://iqra.tgpu.my/">TGPU Iqra</a></footer>
+</div><main><header><div class="brand"><img class="brand-logo" src="/khalifah-kecil-logo.png" alt="TGPU Khalifah Kecil" width="92" height="92" decoding="async"><span>KHALIFAH KECIL</span></div><div class="tag">IMPOSSIBLE → POSSIBLE · DUNIA PEMBELAJARAN</div></header><button type="button" class="secondary" style="max-width:240px;margin:15px 0" onclick="showKhalifahLanding()">← Dunia Khalifah</button><div id="app"></div><section id="khalifah-kindness" class="kindness-missions" aria-label="Optional supervised kindness activities"></section></main>
 <footer class="family-footer"><p>Fikir dahulu · Cuba di dunia sebenar · Belajar · Baiki · Bantu</p><nav aria-label="Laman dalam keluarga TGPU"><a href="https://tgpu.my/">TGPU Digital</a><a href="https://academy.tgpu.my/">TGPU Academy</a><a href="https://iqra.tgpu.my/">TGPU Iqra</a></nav></footer>
 <script>
 const S={step:+localStorage.kkStep||0,name:localStorage.kkName||"",age:localStorage.kkAge||"8",hero:localStorage.kkHero||"",result:localStorage.kkResult||"",improve:localStorage.kkImprove||"",idea:localStorage.kkIdea||"",retest:localStorage.kkRetest||"",home:localStorage.kkHome||"",oceanResult:localStorage.kkOceanResult||"",oceanImprove:localStorage.kkOceanImprove||"",oceanRetest:localStorage.kkOceanRetest||"",powerResult:localStorage.kkPowerResult||"",powerImprove:localStorage.kkPowerImprove||"",powerRetest:localStorage.kkPowerRetest||"",plantResult:localStorage.kkPlantResult||"",plantImprove:localStorage.kkPlantImprove||"",plantRetest:localStorage.kkPlantRetest||"",homeProblem:localStorage.kkHomeProblem||"",homeIdea:localStorage.kkHomeIdea||"",homeResult:localStorage.kkHomeResult||"",homeImprove:localStorage.kkHomeImprove||"",homeRetest:localStorage.kkHomeRetest||""};
 const escapeHTML=value=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const app=document.querySelector("#app"); const save=()=>{for(const k in S)localStorage["kk"+k[0].toUpperCase()+k.slice(1)]=S[k]};
-function go(n){S.step=n;save();render();scrollTo(0,0)} function btn(t,n,c="primary"){return `<button class="${c}" onclick="go(${n})">${t}</button>`}
+function showKhalifahLanding(){document.body.classList.add('kk-landing-mode');window.scrollTo(0,0);updateKhalifahPassport();}
+function updateKhalifahPassport(){let count=0;document.querySelectorAll('[data-kk-complete]').forEach(e=>{const complete=localStorage.getItem(e.dataset.kkComplete)==='1';e.classList.toggle('done',complete);if(complete)count++});const message=document.getElementById('kk-passport-message');if(message)message.textContent=count+' daripada 5 dunia diterokai · disimpan pada peranti ini sahaja.';}
+function startKhalifahMission(n){document.body.classList.remove('kk-landing-mode');if(n!==0&&!S.name){S.step=1;save();render();window.scrollTo(0,0);return;}go(n);}
+function openKhalifahPassport(){startKhalifahMission(S.name?12:0)}
+function go(n){document.body.classList.remove('kk-landing-mode');S.step=n;save();render();scrollTo(0,0)} function btn(t,n,c="primary"){return `<button class="${c}" onclick="go(${n})">${t}</button>`}
 function missionMeta(){if(S.step>=80)return["❤️","MISI RUMAH","#8f4f45"];if(S.step>=60)return["🌱","MISI ALAM","#4f7a47"];if(S.step>=40)return["⚙","MISI KUASA","#9a6b24"];if(S.step>=20)return["≈","MISI LAUTAN","#39768a"];return["↑","MISI LANGIT","#4e8190"]}function shell(n,title,body){const m=missionMeta();return `<div class="mission-head" style="--accent:${m[2]}"><div class="mission-orb">${m[0]}</div><div><div class="micro">${m[1]}</div><b>Langkah ${n} daripada 10</b></div></div><div class="progress"><i style="width:${n*10}%;background:var(--missionAccent,${m[2]})"></i></div><section class="card mission-card" style="--missionAccent:${m[2]}"><span class="pill">${m[1]} · ${n}/10</span><h1>${title}</h1>${body}</section>`}
 function render(){
 if(S.step===0&&localStorage.kkCompleted==='1'){S.step=12;save();}
@@ -135,6 +240,6 @@ if(S.step===49)app.innerHTML=shell(10,"Ilmu mengurangkan kesukaran",`<p class="l
 if(S.step===50)app.innerHTML=`<section class="card"><div class="bigemoji">💪🌟</div><h1>Misi Kuasa selesai!</h1><p class="lead">Kamu tidak menjadi lebih kuat secara ajaib. Kamu belajar bahawa manusia boleh menggunakan ilmu dan mesin untuk mengubah cara daya digunakan.</p><div class="passport"><strong>Pasport Pencipta #003</strong><div class="summary">💪 Misi: Bagaimana kita mengangkat benda yang terasa berat?<br>🧪 ${escapeHTML(S.powerResult||"Tuas dicuba")}<br>🔧 ${escapeHTML(S.powerImprove||"Fulkrum diubah")}<br>🔁 ${escapeHTML(S.powerRetest||"Hasil dibandingkan")}</div></div><div class="callout">⚡ <b>Super strength?</b><br>Manusia membina alat yang membuat daya kita lebih berguna.</div><button class="primary" onclick="go(12)">Kembali ke Dunia Khalifah →</button></section>`;
 if(S.step===30)app.innerHTML=`<section class="card"><div class="bigemoji">🌊🌟</div><h1>Misi Lautan selesai!</h1><p class="lead">Kamu fikir dahulu, menguji udara yang terperangkap, mengubah satu perkara dan memerhati apa yang berlaku.</p><div class="passport"><strong>Pasport Pencipta #002</strong><div class="summary">🌊 Misi: Bolehkah manusia meneroka di bawah air?<br>🧪 ${escapeHTML(S.oceanResult||"Eksperimen dibuat")}<br>🔧 ${escapeHTML(S.oceanImprove||"Satu perubahan diuji")}<br>🔁 ${escapeHTML(S.oceanRetest||"Hasil diperhatikan")}</div></div><div class="callout">🧠 <b>Jangan iri kuasa khayalan.</b><br>Siasat masalah sebenar.</div><button class="primary" onclick="go(12)">Kembali ke Dunia Khalifah →</button></section>`;
 }
-render(); if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js");
+render(); updateKhalifahPassport(); if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js");
 </script><script src="/khalifah-i18n.js?v=1"></script><script src="/kindness-missions.js?v=1" defer></script><script src="/tgpu-feedback.js?v=2" data-app="khalifah" data-version="khalifah-feedback-v1"></script>
 </body></html>
